@@ -27,8 +27,20 @@ describe('day 4', () => {
 
 			let sumOfSectorIds = rooms.filter(r => r.real).map(r => r.sectorId).reduce((a, b) => a + b, 0);
 
-			console.log(rooms);
-			console.log(sumOfSectorIds);
+			// console.log(rooms);
+			// console.log(sumOfSectorIds);
+		})
+	})
+
+
+	describe('day 4, puzzle 2', () => {
+		it('should create decrypt', () => {
+			let rooms = RoomFactory.make(`qzmt-zixmtkozy-ivhz-343[qmtzk]`);
+			//very encrypted name
+			rooms.forEach(r => {
+				console.log('room');
+				console.log(r.decrypt())
+			});
 		})
 	})
 })

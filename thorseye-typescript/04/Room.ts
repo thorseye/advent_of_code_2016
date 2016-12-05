@@ -40,6 +40,35 @@ export class Room {
 		}).slice(0, 5).map(l => l.key);
 		return fiveMax;
 	}
+
+	public decrypt(): string {
+		let first = 'a'.charCodeAt(0);
+		let last = 'z'.charCodeAt(0);
+		let aToZ = ((first: number, last: number): string[] => {
+			let chars: string[] = [];
+			for (let i = first; i <= last; i++) {
+				const char = String.fromCharCode(i);
+				chars.push(char);
+			}
+			return chars;
+		})(first, last);
+
+
+		let decrypted = '';
+		for (let c = 0; c < this.name.length; c++) {
+			const char = this.name.charAt(c);
+			const charCode = this.name.charCodeAt(c);
+
+			if (char == '-') {
+				decrypted += ' ';
+			} else {
+				let newCharCode = (charCode - first + this.sectorId) % aToZ.length + first;
+				// console.log(char, charCode, ', new: ', newCharCode, String.fromCharCode(newCharCode));
+				decrypted += String.fromCharCode(newCharCode);
+			}
+		}
+		return decrypted;
+	}
 }
 
 export class RoomFactory {
