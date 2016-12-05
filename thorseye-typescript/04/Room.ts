@@ -63,7 +63,6 @@ export class Room {
 				decrypted += ' ';
 			} else {
 				let newCharCode = (charCode - first + this.sectorId) % aToZ.length + first;
-				// console.log(char, charCode, ', new: ', newCharCode, String.fromCharCode(newCharCode));
 				decrypted += String.fromCharCode(newCharCode);
 			}
 		}

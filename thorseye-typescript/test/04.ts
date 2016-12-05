@@ -17,30 +17,27 @@ describe('day 4', () => {
 			`)
 
 			let sumOfSectorIds = rooms.filter(r => r.real).map(r => r.sectorId).reduce((a, b) => a + b, 0);
-
-			console.log(rooms);
-			console.log(sumOfSectorIds);
 		})
 
 		it('should create rooms base on input', () => {
 			const rooms = RoomFactory.make(input)
 
 			let sumOfSectorIds = rooms.filter(r => r.real).map(r => r.sectorId).reduce((a, b) => a + b, 0);
-
-			// console.log(rooms);
-			// console.log(sumOfSectorIds);
+			assert.equal(sumOfSectorIds, 409147);
 		})
 	})
 
 
 	describe('day 4, puzzle 2', () => {
 		it('should create decrypt', () => {
-			let rooms = RoomFactory.make(`qzmt-zixmtkozy-ivhz-343[qmtzk]`);
-			//very encrypted name
-			rooms.forEach(r => {
-				console.log('room');
-				console.log(r.decrypt())
-			});
+			let room = new Room(`qzmt-zixmtkozy-ivhz-343[qmtzk]`);
+			assert.equal(room.decrypt(), 'very encrypted name');
+		})
+
+		it('should find a specific room', () => {
+			const rooms = RoomFactory.make(input)
+			let room = rooms.find(room => room.decrypt() == 'northpole object storage');
+			assert.equal(room.sectorId, 991);
 		})
 	})
 })
