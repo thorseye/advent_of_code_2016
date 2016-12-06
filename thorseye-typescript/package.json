@@ -14,8 +14,10 @@
   "author": "Jonas Thoursie <jonas.thoursie@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@types/md5": "^2.1.31",
     "@types/mocha": "^2.2.33",
     "@types/node": "^0.0.2",
+    "md5": "^2.2.1",
     "typescript": "^2.0.10"
   },
   "devDependencies": {
