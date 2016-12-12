@@ -18,5 +18,10 @@ console.log(`Day 4, puzzle 1: ${Day4.Puzzle1}`);
 console.log(`Day 4, puzzle 2: ${Day4.Puzzle2}`);
 
 import * as Day5 from './05';
-console.log(`Day 5, puzzle 1: ${Day5.Puzzle1}`);
-console.log(`Day 5, puzzle 2: ${Day5.Puzzle2}`);
+console.log(`Day 5 is slow, will not run unless uncommenting the rows below...`);
+// console.log(`Day 5, puzzle 1: ${Day5.Puzzle1}`);
+// console.log(`Day 5, puzzle 2: ${Day5.Puzzle2}`);
+
+import * as Day6 from './06';
+console.log(`Day 6, puzzle 1: ${Day6.Puzzle1}`);
+console.log(`Day 6, puzzle 2: ${Day6.Puzzle2}`);
