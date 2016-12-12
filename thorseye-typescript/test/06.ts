@@ -1,13 +1,13 @@
 import * as assert from 'assert'
 import * as mocha from 'mocha'
 
-// import { Door } from '../05/Door'
-// import { input } from '../05/input'
+import { Decoder } from '../06/Decoder'
+// import { input } from '../06/input'
 import { } from '../06'
 
 describe('day 6', () => {
 
-	describe('day 6, puzzle 1', () => {
+	describe('day 6', () => {
 		it('should find password', () => {
 			const input = `eedadn
 drvtee
@@ -25,14 +25,8 @@ vntsnd
 vrdear
 dvrsen
 enarar`;
-
+			assert.equal(new Decoder(input).decode(), 'easter');
+			assert.equal(new Decoder(input).decode(true), 'advent');
 		})
-		// it('day6, puzzle 2', () => {
-		// 	let door = new Door('abc3231929');
-		// 	const pw = door.getPasswordPuzzle2();
-		// 	console.log("Password 2: ", pw);
-		// 	assert.equal(pw, '05ace8e3');
-		// 	// assert.equal(door.password, '18f47a30');
-		// })
 	})
 })

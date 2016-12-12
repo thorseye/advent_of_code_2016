@@ -15,17 +15,20 @@ export class Decoder {
 		})
 	}
 
-	public decode() {
-		let code = '';
+	public decode(leastCommon = false) {
+		let mostCommonCode = '';
+		let leastCommonCode = '';
 		let result = this.columns.forEach(column => {
-			let char = column.sort((a, b) =>
+			let sorted = column.sort((a, b) =>
 				column.filter(val => val === a).length -
-				column.filter(val => val === b).length)
-				.pop();
-			code += char;
+				column.filter(val => val === b).length);
+			mostCommonCode += sorted.pop();
+			leastCommonCode += sorted.reverse().pop();
 		});
 
-		return code;
-	}
+		if (leastCommon)
+			return leastCommonCode;
 
+		return mostCommonCode;
+	}
 }
