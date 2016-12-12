@@ -12,10 +12,27 @@ class Sequence {
 
 		return false;
 	}
+
+	public getAbas(): string[] {
+		let abas: string[] = [];
+		for (let i = 0; (i + 3) <= this.value.length; i++) {
+			let str = this.value.substr(i, 3);
+			let reverse = str.split('').reverse().join('');
+			if (str == reverse && str.charAt(0) != str.charAt(1)) {
+				abas.push(str);
+			}
+		}
+
+		return abas;
+	}
+
+	public hasAba(): boolean {
+		return this.getAbas().length > 0;
+	}
 }
 
 export class IP {
-	private sequences: Sequence[] = [];
+	public sequences: Sequence[] = [];
 
 	constructor(public ip: string) {
 		let parts = this.ip.match(/[a-z]+/g);
@@ -31,6 +48,28 @@ export class IP {
 		let hypernetHasAbba = this.sequences.filter(s => s.isHypernet).some(s => s.hasAbba());
 
 		return hasAbba && !hypernetHasAbba;
+	}
+
+	public supportsSsl(): boolean {
+		let abas: string[] = [];
+		let hypernetsWithAba: string[] = [];
+		this.sequences.filter(s => !s.isHypernet).forEach(s => {
+			abas = abas.concat(s.getAbas())
+		});
+		this.sequences.filter(s => s.isHypernet).forEach(s => {
+			hypernetsWithAba = hypernetsWithAba.concat(s.getAbas())
+		});
+
+		for (let aba of abas) {
+			for (let haba of hypernetsWithAba) {
+				let inverted = (haba.charAt(1) + haba.charAt(0) + haba.charAt(1));
+				if (aba == inverted) {
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 }
