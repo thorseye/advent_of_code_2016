@@ -10,10 +10,15 @@ describe('day 5', () => {
 	describe('day 5, puzzle 1', () => {
 		it('should find password', () => {
 			let door = new Door('abc');
-			assert.equal(door.password, '18f47a30');
+			const pw = door.getPasswordPuzzle1();
+			console.log("Password 1: ", pw);
+			assert.equal(pw, '18f47a30');
 		})
 		it('should find password 2', () => {
-			let door = new Door(input);
+			let door = new Door('abc3231929');
+			const pw = door.getPasswordPuzzle2();
+			console.log("Password 2: ", pw);
+			assert.equal(pw, '05ace8e3');
 			// assert.equal(door.password, '18f47a30');
 		})
 	})
