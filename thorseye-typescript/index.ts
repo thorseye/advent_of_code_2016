@@ -25,3 +25,7 @@ console.log(`Day 5 is slow, will not run unless uncommenting the rows below...`)
 import * as Day6 from './06';
 console.log(`Day 6, puzzle 1: ${Day6.Puzzle1}`);
 console.log(`Day 6, puzzle 2: ${Day6.Puzzle2}`);
+
+import * as Day7 from './07';
+console.log(`Day 7, puzzle 1: ${Day7.Puzzle1}`);
+console.log(`Day 7, puzzle 2: ${Day7.Puzzle2}`);
