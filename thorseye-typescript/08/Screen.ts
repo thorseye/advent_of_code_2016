@@ -60,15 +60,15 @@ export class Screen {
 		this.pixels[row] = newRow;
 	}
 
-	public draw() {
-		let str = ``;
+	public draw(): string {
+		let str = `\n`;
 		for (let row of this.pixels) {
 			for (let col of row) {
 				str += col.draw();
 			}
 			str += '\n';
 		}
-		console.log(str);
+		return str;
 	}
 
 	public readInstructions(input: string) {
@@ -77,7 +77,6 @@ export class Screen {
 			if (rect) {
 				const width = parseInt(rect[1], 10);
 				const height = parseInt(rect[2], 10);
-				console.log(line, " | rect ", width, height);
 				this.rect(width, height);
 			}
 
@@ -100,7 +99,7 @@ export class Screen {
 	public countLitPixels(): number {
 		let count = 0;
 		for (let row of this.pixels) {
-			for (let pixel of row)  {
+			for (let pixel of row) {
 				if (pixel.lit) {
 					count++;
 				}

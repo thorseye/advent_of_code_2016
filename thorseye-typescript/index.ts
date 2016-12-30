@@ -29,3 +29,11 @@ console.log(`Day 6, puzzle 2: ${Day6.Puzzle2}`);
 import * as Day7 from './07';
 console.log(`Day 7, puzzle 1: ${Day7.Puzzle1}`);
 console.log(`Day 7, puzzle 2: ${Day7.Puzzle2}`);
+
+import * as Day8 from './08';
+console.log(`Day 8, puzzle 1: ${Day8.Puzzle1}`);
+console.log(`Day 8, puzzle 2: ${Day8.Puzzle2}`);
+
+import * as Day9 from './09';
+console.log(`Day 9, puzzle 1: ${Day9.Puzzle1}`);
+console.log(`Day 9, puzzle 2: ${Day9.Puzzle2}`);
